@@ -134,14 +134,12 @@ namespace CardGame.Cui.PlayerGathering
                 string[] hostAddressParts = hostAddress.Split(':');
                 if (hostAddressParts.Length == 2)
                 {
-                    IPAddress serverIPAddress = Dns.GetHostAddresses(hostAddressParts[0])[0];
-                    int port = int.Parse(hostAddressParts[1]);
-                    //if (!int.TryParse(hostAddressParts[1], out int port)
-                    //    || !IPAddress.TryParse(hostAddressParts[0], out IPAddress serverIPAddress))
-                    //{
-                    //    Console.WriteLine("Invalid address. Try again!");
-                    //    continue;
-                    //}
+                    if (!int.TryParse(hostAddressParts[1], out int port)
+                        || !IPAddress.TryParse(hostAddressParts[0], out IPAddress serverIPAddress))
+                    {
+                        Console.WriteLine("Invalid address. Try again!");
+                        continue;
+                    }
 
                     // TODO: When server closes entry, client must be properly informed.
                     tcpClient.Connect(new IPEndPoint(serverIPAddress, port));
