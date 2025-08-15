@@ -12,7 +12,7 @@
 
         public Character Character { get; }
 
-        public bool IsStartCard => Symbol.IsStartSymbol && Character.IsStartCharacter;//
+        public bool IsStartCard => Symbol.IsStartSymbol && Character.IsStartCharacter;////
 
         public override string ToString()
         {
