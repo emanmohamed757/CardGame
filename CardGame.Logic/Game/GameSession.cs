@@ -37,7 +37,7 @@ namespace CardGame.Logic.Game
             {
                 if (i < numberOfHumans)
                 {
-                    Players.Add(new Human(hands[i], namesOfHumans[i], playerIds[i]));
+                    Players.Add(new Human(hands[i], namesOfHumans[i], playerIds != null ? playerIds[i] : 0));
                 }
                 else
                 {
